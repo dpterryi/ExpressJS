@@ -1,1 +1,0 @@
-web: node myfile_ok.txt
