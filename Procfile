@@ -1,1 +1,1 @@
-web: node myfile2.txt
+web: node myfile_ok.txt
