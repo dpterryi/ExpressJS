@@ -1,8 +1,9 @@
 var express = require('express');
+var morgan = require('morgan');
 var app = express();
 var cool = require('cool-ascii-faces');	
 
-app.use(express.logger());
+app.use(morgan());
 
 app.get('/', function(request, response) {
   response.send(cool());
