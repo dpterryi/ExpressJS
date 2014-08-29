@@ -3,7 +3,6 @@ var express = require('express'),
     path 	= require('path'),
     exphbs  = require('express-handlebars');
     
-
 var app = express();
 
 app.use(morgan());
