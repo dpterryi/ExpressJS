@@ -1,24 +1,14 @@
-var express = require('express'),
-    path 	= require('path'),
-    exphbs  = require('express-handlebars');
-    
-
+var express = require('express');
 var app = express();
+var cool = require('cool-ascii-faces');	
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.use(express.logger());
 
-app.use(express.static(__dirname + '/public'));
-
-app.get('/', function (req, res) {
-    res.render('home');
+app.get('/', function(request, response) {
+  response.send(cool());
 });
 
-app.get('/example', function (req, res) {
-    res.render('example');
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
-
-
-
-app.listen(3000);
-console.log( 'Listening on port 3000' );
