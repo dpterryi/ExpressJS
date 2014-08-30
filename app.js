@@ -1,7 +1,10 @@
 var express = require('express'),
-    morgan  = require( 'morgan' ),
+    logger  = require( 'morgan' ),
     path    = require('path'),
     exphbs  = require('express-handlebars');
+
+var routes    = require('./routes/index'),
+    example   = require('./routes/example');
 
 var app = express();
 
@@ -11,13 +14,13 @@ app.set('view engine', 'handlebars');
 
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/example', example);
+app.use('/', routes );
+app.use('/example', example );
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
